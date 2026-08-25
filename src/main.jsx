@@ -4,9 +4,9 @@ import './styles.css'
 import { ResumePage, OtherProjectsPage } from './pages.jsx'
 
 const projectAssets = [
-  { no: '01', type: 'FLAGSHIP PRODUCT', image: '/a525-real.png', featured: true, hover: '/a525-brick.png' },
-  { no: '02', type: 'FLAGSHIP PRODUCT', image: '/lotus-real.png', featured: true, hover: '/lotus-brick.png' },
-  { no: '03', type: 'FLAGSHIP PRODUCT', image: '/renault-real.png', featured: true, hover: '/renault-brick.png' },
+  { no: '01', type: 'FLAGSHIP PRODUCT', image: '/a525-real.webp', featured: true, hover: '/a525-brick.webp' },
+  { no: '02', type: 'FLAGSHIP PRODUCT', image: '/lotus-real.webp', featured: true, hover: '/lotus-brick.webp' },
+  { no: '03', type: 'FLAGSHIP PRODUCT', image: '/renault-real.webp', featured: true, hover: '/renault-brick.webp' },
 ]
 
 const copy = {
@@ -128,7 +128,7 @@ function App() {
     </div>}
     <main className={`${ready ? 'is-loaded' : ''} ${leaving ? 'is-leaving' : ''}`}>
     <section className="hero" id="hero">
-      <video className="hero-video" autoPlay muted loop playsInline preload="auto" poster="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1900&q=85">
+      <video className="hero-video" autoPlay muted loop playsInline preload="metadata" poster="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1900&q=85">
         <source src="/hero-background.mp4" type="video/mp4" />
       </video>
       <div className="video-overlay" />
@@ -147,7 +147,7 @@ function App() {
     <section className="about section shell" id="about">
       <div className="section-kicker">01 / ABOUT ME</div>
       <div className="about-grid">
-        <div className="portrait"><div className="portrait-copy">{t.portrait[0]}<br />{t.portrait[1]}</div><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=85" alt="协作讨论场景" /></div>
+        <div className="portrait"><div className="portrait-copy">{t.portrait[0]}<br />{t.portrait[1]}</div><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=85" alt="协作讨论场景" /></div>
         <div className="about-content">
           <div className="about-head"><p className="large-intro">{t.aboutName}</p><p className="about-subtitle">{t.aboutRole}</p><div className="about-body">{t.aboutBody.map((p, i) => <p key={i}>{p}</p>)}</div></div>
           <div className="about-detail"><div><span>PROFILE</span><p>{t.profile}</p></div><div><span>CONTACT</span><a href="mailto:hanabihuang@outlook.com">hanabihuang@outlook.com <Arrow /></a><a href="tel:18688632031">+86 186 8863 2031 <Arrow /></a></div></div>
@@ -157,7 +157,7 @@ function App() {
       <div className="stats">{t.stats.map(([value, suffix, label]) => <div key={label}><b>{value}<span>{suffix}</span></b><p>{label}</p></div>)}</div>
     </section>
 
-    <section className="projects section" id="projects"><div className="shell"><div className="section-head"><div className="section-kicker">02 / SELECTED WORK</div><h2>{t.selected}<span>{t.selectedAccent}</span></h2><p>{t.selectedDesc}</p></div><div className="project-list">{projectAssets.map((p, index) => <article className="project" key={p.no}><div className={`project-image ${p.gallery ? 'project-gallery' : ''}`}>{p.gallery ? <div className="gallery-stack">{p.gallery.map((image, imageIndex) => <img key={image} src={image} alt={`${t.projectTitle[index]} ${imageIndex + 1}`} />)}</div> : <><img className={`${p.featured ? 'featured-project-image' : ''}${p.hover ? ' fit-car' : ''}`} src={p.image} alt={t.projectTitle[index]} />{p.hover && <img className="project-hover" src={p.hover} alt="" />}</>}<div className="project-shade" /><span>{p.no}</span></div><div className="project-meta"><p>{p.type}</p><h3>{t.projectTitle[index]}</h3><small>{t.projectDetail[index]}</small></div></article>)}</div><div className="project-extra"><a className="page-link-card" href="?view=other" onClick={(e) => { e.preventDefault(); goView('other') }}>其他项目 <span className="arrow">→</span></a></div></div></section>
+    <section className="projects section" id="projects"><div className="shell"><div className="section-head"><div className="section-kicker">02 / SELECTED WORK</div><h2>{t.selected}<span>{t.selectedAccent}</span></h2><p>{t.selectedDesc}</p></div><div className="project-list">{projectAssets.map((p, index) => <article className="project" key={p.no}><div className={`project-image ${p.gallery ? 'project-gallery' : ''}`}>{p.gallery ? <div className="gallery-stack">{p.gallery.map((image, imageIndex) => <img key={image} src={image} alt={`${t.projectTitle[index]} ${imageIndex + 1}`} />)}</div> : <><img loading="lazy" decoding="async" className={`${p.featured ? 'featured-project-image' : ''}${p.hover ? ' fit-car' : ''}`} src={p.image} alt={t.projectTitle[index]} />{p.hover && <img loading="lazy" decoding="async" className="project-hover" src={p.hover} alt="" />}</>}<div className="project-shade" /><span>{p.no}</span></div><div className="project-meta"><p>{p.type}</p><h3>{t.projectTitle[index]}</h3><small>{t.projectDetail[index]}</small></div></article>)}</div><div className="project-extra"><a className="page-link-card" href="?view=other" onClick={(e) => { e.preventDefault(); goView('other') }}>其他项目 <span className="arrow">→</span></a></div></div></section>
 
     <section className="strengths section shell" id="strengths"><div className="section-kicker">03 / HOW I WORK</div><div className="strengths-title"><h2>{t.strength}<br /><span>{t.strengthAccent}</span></h2><p>{t.strengthDesc}</p></div><div className="strength-grid">{t.strengthCards.map(([title, description, label], index) => <article key={label}><b>{String(index + 1).padStart(2, '0')}</b><h3>{title}</h3><p>{description}</p><i>{label}</i></article>)}</div></section>
 

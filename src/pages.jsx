@@ -51,11 +51,11 @@ export function ResumePage({ t, language, goView, switchLanguage }) {
 }
 
 const extraProjects = [
-  { src: '/project-alpine-a525.png', no: '04', zh: 'BWT Alpine F1 A525 · 赛道', en: 'BWT Alpine F1 A525 · Race', ja: 'BWTアルピーヌ F1 A525 · レース', detail: '1:8 / F1' },
-  { src: '/project-lotus-green.png', no: '05', zh: 'Lotus Exige Cup 430 · 绿色', en: 'Lotus Exige Cup 430 · Green', ja: 'ロータス Exige Cup 430 · 緑', detail: '1:8' },
-  { src: '/project-renault-r5.png', no: '06', zh: 'Renault 5 Turbo', en: 'Renault 5 Turbo', ja: 'ルノー 5 ターボ', detail: '1:24' },
-  { src: '/project-renault-sport.png', no: '07', zh: 'Renault Sport', en: 'Renault Sport', ja: 'ルノー スポーツ', detail: '1:24' },
-  { src: '/project-renault-race.png', no: '08', zh: 'Renault R.S. 01 · 赛道', en: 'Renault R.S. 01 · Race', ja: 'ルノー R.S. 01 · レース', detail: '1:24' },
+  { src: '/project-alpine-a525.webp', no: '04', zh: 'BWT Alpine F1 A525 · 赛道', en: 'BWT Alpine F1 A525 · Race', ja: 'BWTアルピーヌ F1 A525 · レース', detail: '1:8 / F1' },
+  { src: '/project-lotus-green.webp', no: '05', zh: 'Lotus Exige Cup 430 · 绿色', en: 'Lotus Exige Cup 430 · Green', ja: 'ロータス Exige Cup 430 · 緑', detail: '1:8' },
+  { src: '/project-renault-r5.webp', no: '06', zh: 'Renault 5 Turbo', en: 'Renault 5 Turbo', ja: 'ルノー 5 ターボ', detail: '1:24' },
+  { src: '/project-renault-sport.webp', no: '07', zh: 'Renault Sport', en: 'Renault Sport', ja: 'ルノー スポーツ', detail: '1:24' },
+  { src: '/project-renault-race.webp', no: '08', zh: 'Renault R.S. 01 · 赛道', en: 'Renault R.S. 01 · Race', ja: 'ルノー R.S. 01 · レース', detail: '1:24' },
 ]
 
 export function OtherProjectsPage({ t, language, goView, switchLanguage, projects }) {
@@ -70,7 +70,7 @@ export function OtherProjectsPage({ t, language, goView, switchLanguage, project
         <p>{t.selectedDesc}</p>
       </section>
       <section className="other-project-grid">
-        {gallery.map((p) => <figure className="other-project" key={p.no}><img src={p.src} alt={p.title} /><figcaption><b>{p.no}</b><h3>{p.title}</h3><small>{p.detail}</small></figcaption></figure>)}
+        {gallery.map((p) => <figure className="other-project" key={p.no}><img loading="lazy" decoding="async" src={p.src} alt={p.title} /><figcaption><b>{p.no}</b><h3>{p.title}</h3><small>{p.detail}</small></figcaption></figure>)}
       </section>
     </SecondaryShell>
   )
