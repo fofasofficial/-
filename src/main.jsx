@@ -86,6 +86,19 @@ function App() {
     window.addEventListener('popstate', onPop)
     return () => window.removeEventListener('popstate', onPop)
   }, [])
+  useEffect(() => {
+    if (view !== 'home') return
+    const v = document.querySelector('.hero-video')
+    if (!v) return
+    v.muted = true
+    v.defaultMuted = true
+    v.playsInline = true
+    v.setAttribute('muted', '')
+    v.setAttribute('playsinline', '')
+    v.preload = 'auto'
+    const p = v.play()
+    if (p && p.catch) p.catch(() => {})
+  }, [view, ready])
   const nav = ['hero', 'about', 'projects', 'strengths', 'contact']
   const switchLanguage = (next) => {
     setLanguage(next)
@@ -115,7 +128,7 @@ function App() {
     </div>}
     <main className={`${ready ? 'is-loaded' : ''} ${leaving ? 'is-leaving' : ''}`}>
     <section className="hero" id="hero">
-      <video className="hero-video" autoPlay muted loop playsInline poster="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1900&q=85">
+      <video className="hero-video" autoPlay muted loop playsInline preload="auto" poster="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1900&q=85">
         <source src="/hero-background.mp4" type="video/mp4" />
       </video>
       <div className="video-overlay" />
